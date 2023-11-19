@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title > Computadores </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list
+    [inset]="true"
+    *ngFor="let computadores of this.listaDeComputadores"
+  >
+    <ion-item (click)="editar(computadores)">
+      <ion-avatar><img src="{{computadores.downloadURL}}" /></ion-avatar>
+      <ion-label>{{ computadores.categoria }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab horizontal="end" vertical="bottom">
+    <ion-fab-button (click)="irParaCadastro()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

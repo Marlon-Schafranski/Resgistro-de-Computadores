@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Cadastrar Computadores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="computadorForm">
+    <ion-item>
+      <ion-input
+        label="Categoria"
+        placeholder="Insira a categoria do computador"
+        formControlName="categoria"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Processador"
+        placeholder="Insira o processador do computador"
+        formControlName="processador"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="placaVideo"
+        placeholder="Insira a placa de vídeo do computador"
+        formControlName="placaVideo"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Memoria Ram"
+        placeholder="Insira a Memória RAM do computador"
+        formControlName="memoriaRam"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select
+        label="Armazenamento"
+        placeholder="Selecione o armazenamento"
+        formControlName="armazenamento"
+      >
+        <ion-select-option value="0">SSD 256GB</ion-select-option>
+        <ion-select-option value="1">SSD 500GB</ion-select-option>
+        <ion-select-option value="2">SSD 1000GB</ion-select-option>
+        <ion-select-option value="3">SSD 500GB + HD 1000GB</ion-select-option>
+        <ion-select-option value="4">SSD 500GB M2</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="block" (click)="cadastrar()" color="success" fill="outline">
+      Cadastrar
+    </ion-button>
+
+    <ion-button expand="block" color="primary" fill="outline">
+      <input type="file" (change)="uploadFile($event.target)" />
+    </ion-button>
+
+    <ion-button expand="block" (click)="voltar()" color="primary" fill="outline">
+      Voltar
+    </ion-button>
+  </form>
+</ion-content>

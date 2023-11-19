@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Cadastrar Computadores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-toggle (ionChange)="habilitar()"> Habilitar a edição </ion-toggle>
+  </ion-item>
+
+  <form [formGroup]="computadoresForm" (ngSubmit)="editar()">
+    <ion-list lines="full">
+      <ion-item>
+        <ion-input
+          formControlName="categoria"
+          label="Categoria"
+          placeholder="Qual a categoria do computador"
+          [disabled]="edicao"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          formControlName="processador"
+          label="processador"
+          placeholder="Qual processador do computador"
+          [disabled]="edicao"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Repeat similar blocks for other form controls -->
+
+      <ion-button
+        expand="block"
+        fill="outline"
+        color="success"
+        type="submit"
+        [disabled]="edicao || computadoresForm.invalid"
+      >
+        Salvar
+      </ion-button>
+
+      <ion-button
+        expand="block"
+        fill="outline"
+        color="danger"
+        (click)="excluir()"
+        [disabled]="edicao"
+      >
+        Excluir
+      </ion-button>
+
+      <ion-button
+        expand="block"
+        fill="outline"
+        color="primary"
+        (click)="voltar()"
+        [disabled]="edicao"
+      >
+        Voltar
+      </ion-button>
+    </ion-list>
+  </form>
+</ion-content>
